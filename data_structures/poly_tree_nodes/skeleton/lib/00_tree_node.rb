@@ -3,9 +3,9 @@ require 'byebug'
 class PolyTreeNode
   attr_accessor :children, :parent, :value
 
-  def initialize(value)
+  def initialize(value, parent: nil)
     @value = value
-    @parent = nil
+    @parent = parent
     @children = []
   end
 

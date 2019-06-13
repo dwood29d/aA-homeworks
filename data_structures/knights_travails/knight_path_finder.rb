@@ -48,7 +48,7 @@ class KnightPathFinder
       valid << new_pos if new_pos.all? { |num| num.between?(0, 7)}
     end
 
-    valid # add this to considered_positions somewhere else
+    valid
   end
 
   def new_move_positions(pos)
@@ -62,5 +62,19 @@ class KnightPathFinder
     new_positions
   end
 
+  def find_path(end_pos)
+    end_node = root_node.bfs(end_pos)
+    trace_path_back(end_node)
+  end
+
+  def trace_path_back(node)
+    paths = [node.value]
+    until node.parent.nil?
+      node = node.parent
+      paths << node.value
+    end
+
+    paths.reverse
+  end
 
 end

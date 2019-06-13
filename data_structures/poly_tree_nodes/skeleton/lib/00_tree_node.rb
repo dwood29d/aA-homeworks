@@ -32,7 +32,6 @@ class PolyTreeNode
 
   def dfs(target_value)
     return self if target_value == self.value
-    # debugger
     children.each do |child|
       result = child.dfs(target_value)
       return result unless result.nil?
